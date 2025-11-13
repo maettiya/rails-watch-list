@@ -1,0 +1,32 @@
+:root {
+  --app-bg: #1C1917;
+  --app-text: #D1D4DB;
+  --app-accent: #FFFCF5;
+  --app-border: #2A2624;
+  --app-card-bg: #23201E;
+
+  --font-sans: "Neue Montreal", sans-serif;
+  --font-serif: "TimesNow-SemiLight", serif;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--app-accent);
+  text-decoration: none;
+  transition: opacity .2s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+h1, h2, h3, h4, h5 {
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}

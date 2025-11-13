@@ -1,0 +1,20 @@
+<div class="new-list-page">
+  <div class="new-list-header">
+    <h1>Create a New List</h1>
+    <p>Give your collection a name</p>
+    <div class="back-button-wrapper">
+      <%= link_to "← Back to all lists", lists_path, class: "button button--outline back-button" %>
+    </div>
+  </div>
+  <div class="new-list-form">
+    <%= form_with model: @list, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "List Name", class: "form-label" %>
+        <%= f.text_field :name, class: "form-input", placeholder: "e.g. Classics, Comfort Films, Horror Gems..." %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Create List", class: "button button--outline" %>
+      </div>
+    <% end %>
+  </div>
+</div>

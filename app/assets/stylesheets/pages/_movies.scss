@@ -1,0 +1,31 @@
+.movies-page {
+  .title {
+    font-family: var(--font-serif);
+    font-size: 44px;
+    margin-bottom: 30px;
+  }
+
+  .movie-card {
+    display: flex;
+    background: var(--app-card-bg);
+    border: 1px solid var(--app-border);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+  }
+
+  .movie-card img {
+    width: 80px;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+
+  .movie-card h3 {
+    font-size: 20px;
+    color: var(--app-accent);
+  }
+
+  .movie-card p {
+    opacity: .7;
+  }
+}

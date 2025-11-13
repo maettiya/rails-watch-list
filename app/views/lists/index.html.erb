@@ -1,0 +1,21 @@
+<div class="page-section page-section--center">
+  <h1 class="page-title">Your Movie Lists</h1>
+  <p class="page-subtitle">
+    Organise and curate your favourite films.
+  </p>
+</div>
+<div class="lists-grid">
+  <% @lists.each do |list| %>
+    <%= link_to list_path(list), class: "list-card" do %>
+      <div class="list-card__inner">
+        <h2 class="list-card__title"><%= list.name %></h2>
+        <div class="list-card__arrow">
+          ↗
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="page-section page-section--center">
+  <%= link_to "Create New List", new_list_path, class: "button button--outline" %>
+</div>

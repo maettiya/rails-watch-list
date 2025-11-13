@@ -10,3 +10,20 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// My custom SCSS
+// Base
+@import "base/reset";
+@import "base/fonts_custom";
+@import "base/global";
+
+// Layout
+@import "layout/layout";
+
+// Components
+@import "components/buttons";
+
+// Pages
+@import "pages/lists";
+@import "pages/movies";
+@import "pages/bookmarks";

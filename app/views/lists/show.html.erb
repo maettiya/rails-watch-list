@@ -1,0 +1,36 @@
+<div class="list-header">
+  <h1 class="list-title"><%= @list.name %></h1>
+  <p class="list-subtitle">A curated collection of <%= @list.name.downcase %> films</p>
+  <div class="back-button-wrapper">
+    <%= link_to "← Back to all lists", lists_path, class: "button button--outline back-button" %>
+    <%= link_to "Add a Movie", new_list_bookmark_path(@list), class: "button button--outline list-add-button" %>
+  </div>
+</div>
+<div class="movies-grid">
+  <% @list.bookmarks.each do |bookmark| %>
+    <% movie = bookmark.movie %>
+    <div class="movie-card">
+      <div class="movie-card__image">
+        <img src="<%= movie.poster_url %>" alt="<%= movie.title %> poster">
+      </div>
+      <div class="movie-card__content">
+        <h2 class="movie-card__title"><%= movie.title %></h2>
+        <div class="movie-card__rating">
+          ⭐ <%= movie.rating %>/10
+        </div>
+        <p class="movie-card__overview">
+          <%= truncate(movie.overview, length: 180) %>
+        </p>
+        <% if bookmark.comment.present? %>
+          <p class="movie-card__comment">
+            “<%= bookmark.comment %>”
+          </p>
+        <% end %>
+        <%= link_to "Delete",
+          bookmark_path(bookmark),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+          class: "movie-card__delete" %>
+      </div>
+    </div>
+  <% end %>
+</div>
