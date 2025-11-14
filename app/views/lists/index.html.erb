@@ -13,12 +13,13 @@
           <h2 class="list-card__title"><%= list.name %></h2>
           <div class="list-card__arrow">↗</div>
         </div>
-      <% end %>
-      <%= link_to "Delete",
-          list_path(list),
+        <%= link_to list_path(list),
           data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" },
-          class: "delete-button" %>
-    </div>
+          class: "delete-button d-block text-center mt-2" do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 <div class="page-section page-section--center">
