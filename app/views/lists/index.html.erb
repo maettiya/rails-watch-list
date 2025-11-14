@@ -6,14 +6,19 @@
 </div>
 <div class="lists-grid">
   <% @lists.each do |list| %>
-    <%= link_to list_path(list), class: "list-card" do %>
-      <div class="list-card__inner">
-        <h2 class="list-card__title"><%= list.name %></h2>
-        <div class="list-card__arrow">
-          ↗
+    <div class="list-item-wrapper">
+      <%= link_to list_path(list), class: "list-card" do %>
+        <div class="list-card__inner"
+             style="<%= list.photo.attached? ? "background-image: url(#{cl_image_path list.photo.key});" : "" %>">
+          <h2 class="list-card__title"><%= list.name %></h2>
+          <div class="list-card__arrow">↗</div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+      <%= link_to "Delete",
+          list_path(list),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" },
+          class: "delete-button" %>
+    </div>
   <% end %>
 </div>
 <div class="page-section page-section--center">

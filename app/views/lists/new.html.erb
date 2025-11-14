@@ -7,13 +7,16 @@
     </div>
   </div>
   <div class="new-list-form">
-    <%= form_with model: @list, local: true do |f| %>
+    <%= simple_form_for @list do |f| %>
       <div class="form-group">
-        <%= f.label :name, "List Name", class: "form-label" %>
-        <%= f.text_field :name, class: "form-input", placeholder: "e.g. Classics, Comfort Films, Horror Gems..." %>
+        <%= f.input :name,
+                  label: "List Name",
+                  input_html: { class: "form-input", placeholder: "e.g. Classics, Comfort Films, Horror Gems..." },
+                  label_html: { class: "form-label" } %>
+        <%= f.input :photo, as: :file %>
       </div>
       <div class="form-actions">
-        <%= f.submit "Create List", class: "button button--outline" %>
+        <%= f.button :submit, "Create List", class: "button button--outline" %>
       </div>
     <% end %>
   </div>
